@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE caches SYSTEM "../../dtd/cache-result.dtd">
+
+<caches>
+
+	<!-- 机构树信息，取ID值 orgright="id" 表示该字典输出时会经过机构ID权限过滤 -->
+	<cache id="orgtree" orgright="no">
+		<exeid>ESYSORG000</exeid>
+	</cache>
+	
+	<cache id="orgtreeAll" orgright="no">
+		<exeid>ESYSORG003</exeid>
+	</cache>
+
+	<!-- 工作日信息 -->
+	<cache id="workdays">
+		<exeid>ESYSWORKDAYQ</exeid>
+	</cache>
+</caches>

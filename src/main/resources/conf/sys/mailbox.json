@@ -1,0 +1,14 @@
+{
+	"bizware" : {
+		"ip" : "1.93.129.98",
+		"port" : "8083",
+		"timeout" : "10000",
+		"mLength" : 6
+	},
+	"p2pbizware" : {
+		"ip" : "1.93.129.98",
+		"port" : "8081",
+		"timeout" : "10000",
+		"mLength" : 6
+	}
+}

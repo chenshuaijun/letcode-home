@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+
+.ball {
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	border-style: solid;
+	font-weight: bold;
+	margin-right: 5px;
+}
+
+.ball.red {
+	border-color: red;
+}
+
+.ball.blue {
+	border-color: blue;
+}

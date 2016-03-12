@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!ELEMENT caches (cache*)>
+<!ELEMENT cache (exeid)>
+<!ATTLIST cache id ID #REQUIRED
+                orgright (none|id|no) "none">
+<!ELEMENT exeid (#PCDATA)>

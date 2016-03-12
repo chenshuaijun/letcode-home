@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html >
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="media/plugins/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="media/plugins/bootstrap/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="media/project/css/main.css">
+		<title>自我风采</title>
+	</head>
+	<body ng-app="letcode">
+		<div class="container" >
+			<div ng-cloak class="navbar navbar-default navbar-static-top">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">升华</a>
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						 <!-- class="active" -->
+						<li><a href="#/index">首页</a></li>
+						<li><a href="note">笔记</a></li>
+						<li><a href="about">联系我</a></li>
+					</ul> 
+				</div>
+			</div>
+		</div>
+		<div class="container" ng-view>
+			
+		</div>
+	</body>
+	<script charset="utf-8" type="text/javascript" src="media/plugins/jquery/jquery.min.js"></script>
+	<script charset="utf-8" type="text/javascript" src="media/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<script charset="utf-8" type="text/javascript" src="media/plugins/angular/angular.min.js"></script>
+	<script charset="utf-8" type="text/javascript" src="media/plugins/angular/angular-route.min.js"></script>
+	<script charset="utf-8" type="text/javascript" src="media/plugins/angular-base64/angular-base64.min.js"></script>
+	<script charset="utf-8" type="text/javascript" src="media/plugins/angular-ui-bootstrap/ui-bootstrap-tpls-1.1.0.min.js"></script>
+	<!-- ueditor -->
+	<script charset="utf-8" type="text/javascript" src="media/plugins/ueditor/ueditor.config.js"></script>
+	<script charset="utf-8" type="text/javascript" src="media/plugins/ueditor/ueditor.all.min.js"></script>
+	<script charset="utf-8" type="text/javascript" src="media/plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
+	<script charset="utf-8" type="text/javascript" src="media/plugins/angular-ueditor/dist/angular-ueditor.min.js"></script>
+	<!-- project js -->
+	<script charset="utf-8" type="text/javascript" src="media/project/app.js"></script>
+	<script charset="utf-8" type="text/javascript" src="media/project/app.config.js"></script>
+	<script charset="utf-8" type="text/javascript" src="media/project/js/index.js"></script>
+	<script charset="utf-8" type="text/javascript" src="media/project/js/about.js"></script>
+	<script charset="utf-8" type="text/javascript" src="media/project/js/note.js"></script>
+</html>

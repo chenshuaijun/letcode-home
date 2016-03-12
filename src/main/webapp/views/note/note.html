@@ -1,0 +1,15 @@
+<meta charset="UTF-8">
+<!-- <link rel="stylesheet" href="../../media/plugins/bootstrap/css/bootstrap.min.css"> -->  
+<div class="row" >
+	<form class="form-horizontal" ng-submit="saveNoteForm()">
+		<div class="col-sm-9">
+			<h4><strong>标题：</strong> </h4>
+	      	<input type="text" class="form-control input-sm" ng-model="noteForm.title" required  placeholder="标题">
+	      	<h4><strong>内容：</strong> </h4>
+	      	<div class="panel">
+				<div style="margin-bottom:0rem" class="ueditor" ng-model="noteForm.content" config="simpleConfig" ></div>
+	      	</div>
+	      	<button type="submit" class="btn btn-primary">保存</button>
+	  	</div>
+	</form>
+</div>

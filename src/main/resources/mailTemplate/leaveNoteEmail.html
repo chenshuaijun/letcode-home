@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>请假申请</title>
+<style type="text/css">
+#content h2 {
+	border-bottom: 3px solid #009cea;
+	padding-bottom: 15px;
+}
+#content{
+	line-height: 24px;
+	font-size: 14px;
+}
+#content label{
+	width: 110px;
+	display: inline-block;
+	text-align: right;
+	font-weight: bold;
+	color: #009cea;
+	padding-right: 10px;
+}
+</style>
+</head>
+<body id="content">
+<h2>员工${leaveEmpl.getRealname()}已提交请假申请</h2>
+<div>
+	<label>请假人：</label><#if leaveEmpl.getRealname()??>${leaveEmpl.getRealname()}</#if></br>
+	<label>请假类型：</label><#if leaveInfo.getLeaveTypeStr()??>${leaveInfo.getLeaveTypeStr()}</#if></br>
+	<label>开始时间：</label><#if leaveInfo.getLeaveBeginTimeStr()??>${leaveInfo.getLeaveBeginTimeStr()}</#if></br>
+	<label>结束时间：</label><#if leaveInfo.getLeaveEndTimeStr()??>${leaveInfo.getLeaveEndTimeStr()}</#if></br>
+	<label>请假时长：</label><#if leaveInfo.getLeaveTime()??>${leaveInfo.getLeaveTime()}</#if>小时</br>
+	<label>交接人：</label><#if leaveInfo.getWorkPartner()??>${leaveInfo.getWorkPartner()}</#if></br>
+	<label>请假原因：</label><#if leaveInfo.getLeaveCause()??>${leaveInfo.getLeaveCause()}</#if></br>
+	<label>备注：</label><#if leaveInfo.getRemark()??>${leaveInfo.getRemark()}</#if></br>
+</div>
+</body>
+</html>

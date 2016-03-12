@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE flushs SYSTEM "../../dtd/cache-flush.dtd">
+
+<flushs>
+
+	<flush><!-- 用户字典 -->
+		<sqlid>M0005U005,M0005U006</sqlid>
+		<dict>userid</dict>
+	</flush>
+
+	<flush><!-- 机构字典 -->
+		<sqlid>M0001UPAUSE,M0001URECOVER,M0001UNEW,M0001UEDIT,M0001UDEL</sqlid>
+		<dict>orgno,orgnoAll</dict>
+		<result>orgtree,orgtreeAll</result>
+	</flush>
+
+	<flush><!-- 角色字典 -->
+		<sqlid>M0006U006,M0006U005,M0006U004</sqlid>
+		<dict>roleid,roleidAll</dict>
+	</flush>
+
+	<flush><!-- 数据字典标识字典 -->
+		<sqlid>M0004U001,M0004U002,M0004U003</sqlid>
+		<dict>sysdict,dictgp</dict>
+	</flush>
+
+	<flush><!-- 数据字典子项更新 -->
+		<sqlid>M0004U004,M0004U005,M0004U006</sqlid>
+		<!-- 支持参数注入来指定要更新的字典项 使用repeat来指定重复参数变量 -->
+		<dict repeat="dict">$U{dict}</dict>
+	</flush>
+
+	<flush>
+		<sqlid>M0003U001</sqlid><!-- 更新系统参数缓存 -->
+		<cache-key>bizr2.sys.params</cache-key>
+	</flush>
+
+</flushs>

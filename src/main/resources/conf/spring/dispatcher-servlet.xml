@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+            http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+
+	<mvc:annotation-driven />
+	<!-- 将无法mapping到Controller的path交给default servlet handler处理 -->
+	<mvc:default-servlet-handler />
+
+	<!-- 自动加载使用 的服务类 -->
+	<context:component-scan base-package="com.letcode" />
+	<!-- 自定义多视图解析器，根据请求后缀调用相应的视图解析器 -->
+	<bean id="multipleViewResolver" class="com.letcode.view.MultipleViewResolver"
+		p:order="0">
+		<property name="resolvers">
+			<map>
+				<entry key="jrxml">
+					<!-- Jasper Report 视图 -->
+					<bean id="jasperReportsViewResolver"
+						class="org.springframework.web.servlet.view.jasperreports.JasperReportsViewResolver">
+						<property name="viewClass"
+							value="org.springframework.web.servlet.view.jasperreports.JasperReportsMultiFormatView" />
+						<property name="prefix" value="/WEB-INF/jrxml/" />
+						<property name="contentType" value="text/html;charset=UTF-8" />
+						<property name="suffix" value=".jrxml" />
+						<property name="viewNames" value="rpt_*" />
+						<property name="cache" value="true" />
+						<property name="jdbcDataSource" ref="mysqlDataSource" />
+						<property name="exporterParameters">
+							<map>
+								<!-- Force bei allen UTF-8 -->
+								<entry
+									key="net.sf.jasperreports.engine.export.JRHtmlExporterParameter.IMAGES_URI">
+									<value>"../servlets/image?image=12123</value>
+								</entry>
+								<entry
+									key="net.sf.jasperreports.engine.export.JRHtmlExporterParameter.CHARACTER_ENCODING">
+									<value>UTF-8</value>
+								</entry>
+								<entry
+									key="net.sf.jasperreports.engine.export.JRXlsExporterParameter.IS_ONE_PAGE_PER_SHEET">
+									<bean id="java.lang.Boolean.FALSE"
+										class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean" />
+								</entry>
+								<entry
+									key="net.sf.jasperreports.engine.export.JRXlsExporterParameter.IS_DETECT_CELL_TYPE">
+									<bean id="java.lang.Boolean.TRUE"
+										class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean" />
+								</entry>
+								<entry
+									key="net.sf.jasperreports.engine.export.JRXlsExporterParameter.IS_WHITE_PAGE_BACKGROUND">
+									<bean id="java.lang.Boolean.FALSE"
+										class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean" />
+								</entry>
+								<entry
+									key="net.sf.jasperreports.engine.export.JRXlsExporterParameter.IS_REMOVE_EMPTY_SPACE_BETWEEN_ROWS">
+									<bean id="java.lang.Boolean.TRUE"
+										class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean" />
+								</entry>
+								<entry
+									key="net.sf.jasperreports.engine.export.JRXlsExporterParameter.IS_REMOVE_EMPTY_SPACE_BETWEEN_COLUMNS">
+									<bean id="java.lang.Boolean.TRUE"
+										class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean" />
+								</entry>
+							</map>
+						</property>
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	<!-- 根据客户端的不同的请求决定不同的 view进行响应, 如 /blog/1.json /blog/1.xml -->
+	<bean
+		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver"
+		p:order="1">
+		<property name="favorParameter" value="false" />
+		<property name="ignoreAcceptHeader" value="true" />
+		<property name="defaultContentType" value="text/html" />
+		<property name="mediaTypes">
+			<map>
+				<entry key="json" value="application/json" />
+				<entry key="html" value="text/html" />
+				<entry key="ftl" value="text/html" />
+				<entry key="atom" value="application/atom+xml" />
+			</map>
+		</property>
+		<property name="defaultViews">
+			<list>
+				<bean
+					class="org.springframework.web.servlet.view.json.MappingJackson2JsonView" />
+			</list>
+		</property>
+	</bean>
+	<!-- 默认的视图解析器 应该给InternalResourceViewResolver分配最低的优先级别，因为无论它是否存在，始终都会用它来解析视图。因此，如果其他解析器的优先级别比较低，就没有机会解析视图了 -->
+	<bean id="defaultViewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+		p:order="5">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="contentType" value="text/html" />
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	<!-- 文件上传相关 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!--one of the properties available;the maximum file size in bytes -->
+		<property name="maxUploadSize" value="1073741824" />
+	</bean>
+</beans>

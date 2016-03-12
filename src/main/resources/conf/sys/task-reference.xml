@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tasks>
+	<task processId="restRequest" taskId="teamLeaderCheck" pageId="MFLOW02">
+		<page-params ref-bean="">
+			<param name="_var_procinit_param" type="map">
+				<field name="restman" rename="restemp" ></field>
+				<field name="orgno" ></field>
+				<field name="reason" ></field>
+				<field name="days" ></field>
+			</param>
+			<param name="_var_process_initiator" type="string" />
+		</page-params>
+	</task>
+</tasks>

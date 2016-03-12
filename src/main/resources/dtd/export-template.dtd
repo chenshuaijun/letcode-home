@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!ELEMENT templates (template*)>
+<!ELEMENT template (excel-file,titlenum?,startnum,startcol?,columns)>
+<!ATTLIST template id ID #REQUIRED>
+<!ELEMENT excel-file (#PCDATA)>
+<!ELEMENT titlenum (#PCDATA)>
+<!ELEMENT startnum (#PCDATA)>
+<!ELEMENT startcol (#PCDATA)>
+<!ELEMENT columns (column+)>
+<!ELEMENT column (#PCDATA)>
+<!ATTLIST column dataType (string|money|double|int|date|time|datetime|percent) #IMPLIED >

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dicts SYSTEM "../../dtd/cache-dict.dtd">
+
+<dicts>
+
+	<!-- 所有机构代码信息字典， 所有机构代码翻译使用这个字典， orgright="no" 表示该字典输出时会经过机构代码权限过滤 -->
+	<dict id="orgno" orgright="no">
+		<from name="exeid">ESYSORG001</from>
+		<key>orgno</key>
+		<val>orgname</val>
+	</dict>
+	
+	<dict id="orgnoAll">
+		<from name="exeid">ESYSORG001</from>
+		<key>orgno</key>
+		<val>orgname</val>
+	</dict>
+
+	<!-- 用户名称字典 -->
+	<dict id="userid">
+		<from name="exeid">ESYSUSER000</from>
+		<key>userid</key>
+		<val>username</val>
+	</dict>
+
+	<!-- 角色名称字典 -->
+	<dict id="roleid">
+		<from name="exeid">ESYSROLE000</from>
+		<key>roleid</key>
+		<val>rolename</val>
+	</dict>
+	
+	<!-- 角色名称字典，无权限过滤，用于字典转换 -->
+	<dict id="roleidAll">
+		<from name="exeid">ESYSROLEALL</from>
+		<key>roleid</key>
+		<val>rolename</val>
+	</dict>
+	
+	<!-- 查询数据字典的字典 -->
+	<dict id="sysdict">
+		<from name="exeid">ESYSDICT000</from>
+		<key>dict</key>
+		<val>dictname</val>
+	</dict>
+	
+	<!-- 查询数据字典分组的字典 -->
+	<dict id="dictgp">
+		<from name="exeid">M0004EQ002</from>
+		<key>dict</key>
+		<val>dictname</val>
+	</dict>
+	
+	<!-- 查询工作日方案类型的字典 -->
+	<dict id="pgmdict">
+		<from name="exeid">M0002EQ006</from>
+		<key>itemkey</key>
+		<val>itemval</val>
+	</dict>
+	
+</dicts>
