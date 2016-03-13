@@ -9,9 +9,16 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import com.letcode.base.RequestSupport;
 
+/**
+ * 平台请求过滤器
+ * 
+ * @author chensj
+ *
+ */
 public class LocalRequestFilter implements Filter {
 
 	private String	encoding;
@@ -44,7 +51,21 @@ public class LocalRequestFilter implements Filter {
 		}
 		RequestSupport.setLocalRequest((HttpServletRequest) request);
 		RequestSupport.setRequestParams();
+		// 解决访问跨域问题
+		dealCorsAccess((HttpServletResponse) response);
 		chain.doFilter(request, response);
+	}
+
+	/**
+	 * 处理跨域访问问题
+	 * 
+	 * @param response
+	 */
+	public void dealCorsAccess(HttpServletResponse response) {
+		response.setHeader("Access-Control-Allow-Origin", "*");
+		response.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, OPTIONS, DELETE");
+		response.setHeader("Access-Control-Max-Age", "3600");
+		response.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 	}
 
 	public String getErrorPage() {

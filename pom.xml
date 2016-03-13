@@ -165,6 +165,12 @@
 			<artifactId>gson</artifactId>
 			<version>2.3</version>
 		</dependency>
+
+		<dependency>
+			<groupId>com.facebook.presto</groupId>
+			<artifactId>presto-orc</artifactId>
+			<version>0.141</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -173,7 +179,7 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.3</version>
 				<configuration>
-					<source>1.8</source>
+					<source>1.7</source>
 					<target>1.8</target>
 					<encoding>UTF-8</encoding>
 				</configuration>
