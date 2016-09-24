@@ -16,22 +16,22 @@
 
 	<!-- 自动加载使用 的服务类 -->
 	<context:component-scan base-package="com.letcode" />
-	
+
 	<!-- 根据客户端的不同的请求决定不同的 view进行响应, 如 /blog/1.json /blog/1.xml -->
 	<bean
 		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver"
 		p:order="0">
-		<property name="favorParameter" value="false" />
-		<property name="ignoreAcceptHeader" value="true" />
-		<property name="defaultContentType" value="text/html" />
-		<property name="mediaTypes">
-			<map>
-				<entry key="json" value="application/json" />
-				<entry key="html" value="text/html" />
-				<entry key="ftl" value="text/html" />
-				<entry key="atom" value="application/atom+xml" />
-			</map>
-		</property>
+		<!-- <property name="favorParameter" value="false" /> -->
+		<!-- <property name="ignoreAcceptHeader" value="true" /> -->
+		<!-- <property name="defaultContentType" value="text/html" /> -->
+		<!-- <property name="mediaTypes"> -->
+		<!-- <map> -->
+		<!-- <entry key="json" value="application/json" /> -->
+		<!-- <entry key="html" value="text/html" /> -->
+		<!-- <entry key="ftl" value="text/html" /> -->
+		<!-- <entry key="atom" value="application/atom+xml" /> -->
+		<!-- </map> -->
+		<!-- </property> -->
 		<property name="defaultViews">
 			<list>
 				<bean

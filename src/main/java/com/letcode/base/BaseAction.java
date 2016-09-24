@@ -11,6 +11,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 
+import com.letcode.utils.DataFormatUtils;
+
 public class BaseAction {
 
 	protected final static Logger log = LoggerFactory.getLogger(BaseAction.class);
@@ -32,7 +34,7 @@ public class BaseAction {
 			transBean.addResponse("ret_msg", "设置成功");
 		}
 
-		String retData = ""; // JsonUtil.objectToJson(transBean.getResponse());
+		String retData =  DataFormatUtils.map2Json(transBean.getResponse());
 		log.info("retrunClient:[{}]", retData);
 		OutputStream out = null;
 		try {
