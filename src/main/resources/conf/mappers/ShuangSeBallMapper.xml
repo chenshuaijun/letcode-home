@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.letcode.busi.services.shuangseball.ShuangSeBallService">
+
+	<sql id="allOfShuangSeBall">
+		date_no,
+		sale_count,
+		sale_amt,
+		red_ball1,
+		red_ball2,
+		red_ball3,
+		red_ball4,
+		red_ball5,
+		red_ball6,
+		blue_ball1,
+		blue_ball2,
+		sysdate
+	</sql>
+
+	<!-- query -->
+	<select id="queryShuangSeBall" parameterType="com.letcode.busi.services.shuangseball.ShuangSeBall"
+		resultType="java.util.Map">
+		select
+		<include refid="allOfShuangSeBall" />
+		from
+		shuangseball
+		where
+		date_no = (select max(date_no) from shuangseball)
+	</select>
+</mapper>

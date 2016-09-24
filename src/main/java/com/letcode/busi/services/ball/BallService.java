@@ -11,14 +11,15 @@ import com.letcode.base.TransBean;
 import com.letcode.busi.services.BaseService;
 
 @Component
-public class BallService extends BaseService{
+public class BallService extends BaseService {
 	@Autowired
 	protected JdbcTemplate jdbcTemplate;
 
 	public void doService(TransBean transBean) throws SQLException {
 		String sql = "select date_no, sale_count, sale_amt, red_ball1, red_ball2, red_ball3, red_ball4, red_ball5, red_ball6, blue_ball1 from shuangseball ssb order by date_no desc limit 1 ";
-		List list = jdbcTemplate.queryForList(sql);
-		if(!list.isEmpty()){
+		List list = null;// jdbcTemplate.queryForList(sql);
+
+		if (!list.isEmpty()) {
 			transBean.addResponse("result", list.get(0));
 		}
 	}

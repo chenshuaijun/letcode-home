@@ -11,13 +11,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 
-import com.letcode.utils.JsonUtil;
-
 public class BaseAction {
 
-	protected final static Logger	log	= LoggerFactory.getLogger(BaseAction.class);
+	protected final static Logger log = LoggerFactory.getLogger(BaseAction.class);
 	@Autowired
-	protected ApplicationContext	context;
+	protected ApplicationContext context;
 
 	/**
 	 * 
@@ -34,7 +32,7 @@ public class BaseAction {
 			transBean.addResponse("ret_msg", "设置成功");
 		}
 
-		String retData = JsonUtil.objectToJson(transBean.getResponse());
+		String retData = ""; // JsonUtil.objectToJson(transBean.getResponse());
 		log.info("retrunClient:[{}]", retData);
 		OutputStream out = null;
 		try {

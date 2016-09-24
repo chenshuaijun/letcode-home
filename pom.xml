@@ -11,7 +11,7 @@
 	<!-- 项目属性 -->
 	<properties>
 		<servlet.version>3.0.1</servlet.version>
-		<spring.version>4.0.6.RELEASE</spring.version>
+		<spring.version>4.2.6.RELEASE</spring.version>
 		<slf4j.version>1.7.7</slf4j.version>
 
 		<freemarker.version>2.3.16</freemarker.version>
@@ -24,6 +24,10 @@
 		<jdbc.driver.version>5.1.32</jdbc.driver.version>
 
 		<freemarker.version>2.3.16</freemarker.version>
+
+		<mybatis.version>3.2.7</mybatis.version>
+		<mybatis-spring.version>1.2.2</mybatis-spring.version>
+		<mysql.version>5.1.30</mysql.version>
 
 		<junit.version>4.11</junit.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -171,6 +175,19 @@
 			<artifactId>presto-orc</artifactId>
 			<version>0.141</version>
 		</dependency>
+
+		<!-- MyBatis -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>${mybatis.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>${mybatis-spring.version}</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<plugins>

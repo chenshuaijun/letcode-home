@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.letcode.utils.JsonUtil;
 
 public class RequestSupport {
 	private static Logger							log				= LoggerFactory.getLogger(RequestSupport.class);
@@ -140,7 +139,6 @@ public class RequestSupport {
 			}
 			reader.close();
 			Map<String, Object> map = new HashMap();
-			map.putAll((Map<String, Object>) JsonUtil.jsonToMap(buffer.toString()));
 			return map;
 		} catch (Exception e) {
 			e.printStackTrace();
