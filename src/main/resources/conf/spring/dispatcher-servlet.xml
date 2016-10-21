@@ -15,7 +15,7 @@
 	<mvc:default-servlet-handler />
 
 	<!-- 自动加载使用 的服务类 -->
-	<context:component-scan base-package="com.letcode" />
+	<context:component-scan base-package="cn.letcode" />
 
 	<!-- 根据客户端的不同的请求决定不同的 view进行响应, 如 /blog/1.json /blog/1.xml -->
 	<bean

@@ -29,6 +29,7 @@
 		<mybatis-spring.version>1.2.2</mybatis-spring.version>
 		<mysql.version>5.1.30</mysql.version>
 
+		<quartz_version>2.2.1</quartz_version>
 		<junit.version>4.11</junit.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -187,6 +188,7 @@
 			<artifactId>json</artifactId>
 			<version>20160810</version>
 		</dependency>
+		
 	</dependencies>
 	<build>
 		<plugins>
