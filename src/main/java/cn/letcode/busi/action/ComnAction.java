@@ -19,6 +19,7 @@ import cn.letcode.base.BaseAction;
 import cn.letcode.base.RequestSupport;
 import cn.letcode.base.TransBean;
 import cn.letcode.busi.services.BaseService;
+import cn.letcode.busi.services.bbs.grouptopic.GroupTopicService;
 import cn.letcode.busi.services.shuangseball.ShuangSeBallService;
 
 @Controller
@@ -45,7 +46,20 @@ public class ComnAction extends BaseAction {
 	public void shuangseball(String tranType, HttpServletRequest request, HttpServletResponse response,
 			ModelMap modelMap) throws UnsupportedEncodingException, IOException {
 		TransBean transBean = new TransBean();
-		transBean.addResponse("result",(Map<String, Object>) shuangseballService.queryShuangSeBall(null));
+		transBean.addResponse("result", (Map<String, Object>) shuangseballService.queryShuangSeBall(null));
 		returnClient(response, transBean);
 	}
+
+	@Autowired
+	public GroupTopicService groupTopicService;
+
+//	@RequestMapping(value = "/grouptopic", method = RequestMethod.POST)
+	@RequestMapping(value = "/grouptopic")
+	public void grouptopic(String tranType, HttpServletRequest request, HttpServletResponse response, ModelMap modelMap)
+			throws UnsupportedEncodingException, IOException {
+		TransBean transBean = new TransBean();
+		transBean.addResponse("result", groupTopicService.queryTopicList());
+		returnClient(response, transBean);
+	}
+
 }

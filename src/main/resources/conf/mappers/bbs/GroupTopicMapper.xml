@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.letcode.busi.services.bbs.grouptopic.GroupTopicService">
+
+	<sql id="allOfGroupTopic">
+		topicid,typeid,groupid,userid,locationid,title,content,count_comment,count_view,addtime,uptime
+	</sql>
+	<resultMap id="groupTopic"
+		type="cn.letcode.busi.services.bbs.grouptopic.GroupTopic">
+		<id column="topicid" property="topicid"/> 
+		<result column="typeid" property="typeid"/>
+	</resultMap>
+	<!-- query -->
+	<select id="queryGroupTopicList" parameterType="cn.letcode.busi.services.bbs.grouptopic.GroupTopic"
+		resultType="java.util.ArrayList" resultMap="groupTopic">
+		select
+		<include refid="allOfGroupTopic" />
+		from
+		thinksaas.ts_group_topic
+	</select>
+
+</mapper>
